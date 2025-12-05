@@ -1,4 +1,4 @@
-# Add the import statements for necessary sympy functions here
+import sympy
 
 
 ELEMENTS = [
