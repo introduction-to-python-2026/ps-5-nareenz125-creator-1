@@ -35,10 +35,10 @@ def count_atoms_in_molecule(molecular_formula):
     Example: 'H2O' → {'H': 2, 'O': 1}"""
     split_formula = split_before_uppercases(molecular_formula)
     atom_counts = {}
-    for atom_str in split_formula:
-        prefix, num = split_at_digit(atom_str)
+    for atom in split_by_capitals(molecular_formula):
+        atom_name, atom_count = split_at_digit(atom_str)
         # If the atom already exists in the dictionary, add to its count
-        if prefix in atom_counts:
+        if atom_name in atom_counts:
             atom_counts[prefix] += num
         else:
             # Otherwise, add the atom with its count
