@@ -1,4 +1,5 @@
 import string_utils
+import equation_utils
 
 
 def balance_reaction(reaction): #"Fe2O3 + H2 -> Fe + H2O"
