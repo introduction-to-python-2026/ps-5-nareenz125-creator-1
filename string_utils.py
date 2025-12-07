@@ -6,7 +6,7 @@ def split_before_uppercases(formula):
     for i in range(1, len(formula)):
         if formula[i].isupper():
             split_formula.append(formula[start:i])
-            start = i  
+            start = i
     split_formula.append(formula[start:])
     return split_formula
 
@@ -31,17 +31,13 @@ def split_at_digit(formula):
     return prefix, num
 
 def count_atoms_in_molecule(molecular_formula):
-    """Takes a molecular formula (string) and returns a dictionary of atom counts.
-    Example: 'H2O' → {'H': 2, 'O': 1}"""
     split_formula = split_before_uppercases(molecular_formula)
     atom_counts = {}
-    for atom in split_by_capitals(molecular_formula):
-        atom_name, atom_count = split_at_digit(atom_str)
-        # If the atom already exists in the dictionary, add to its count
-        if atom_name in atom_counts:
+    for atom_part in split_formula:
+        prefix, num = split_at_digit(atom_part)
+        if prefix in atom_counts:
             atom_counts[prefix] += num
         else:
-            # Otherwise, add the atom with its count
             atom_counts[prefix] = num
     return atom_counts
 
