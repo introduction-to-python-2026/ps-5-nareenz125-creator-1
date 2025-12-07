@@ -35,10 +35,8 @@ def count_atoms_in_molecule(molecular_formula):
     atom_counts = {}
     for atom_part in split_formula:
         prefix, num = split_at_digit(atom_part)
-        if prefix in atom_counts:
-            atom_counts[prefix] += num
-        else:
-            atom_counts[prefix] = num
+        # Use the 'prefix' directly as the atom symbol and update its count.
+        atom_counts[prefix] = atom_counts.get(prefix, 0) + num
     return atom_counts
 
 
