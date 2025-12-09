@@ -31,12 +31,13 @@ def split_at_number(formula):
     return prefix, num
 
 def count_atoms_in_molecule(molecular_formula):
-    split_formula = split_before_uppercases(molecular_formula)
+    split_formula = split_by_capitals(molecular_formula)
     atom_counts = {}
     for atom_part in split_formula:
-        prefix, num = split_at_digit(atom_part) 
+        prefix, num = split_at_number(atom_part) 
         atom_counts[prefix] = atom_counts.get(prefix, 0) + num
     return atom_counts
+
 
 
 
