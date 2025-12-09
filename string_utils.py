@@ -1,4 +1,4 @@
-def split_before_uppercases(formula):
+def split_by_capitals(formula):
     if not formula:
         return []
     start = 0
@@ -10,7 +10,7 @@ def split_before_uppercases(formula):
     split_formula.append(formula[start:])
     return split_formula
 
-def split_at_digit(formula):
+def split_at_number(formula):
     digit_location = -1
 
     for i in range(len(formula)):
@@ -37,6 +37,7 @@ def count_atoms_in_molecule(molecular_formula):
         prefix, num = split_at_digit(atom_part) 
         atom_counts[prefix] = atom_counts.get(prefix, 0) + num
     return atom_counts
+
 
 
 def parse_chemical_reaction(reaction_equation):
